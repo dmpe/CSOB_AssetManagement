@@ -1,10 +1,10 @@
 Package: CSOBam
 Type: Package
 Title: Retrieve publically available financial data from 'www.csobam.cz' (ČSOB Czech Republic Asset Management).
-Version: 0.1.0
+Version: 0.1.1
 Author: John Malc
 Maintainer: John Malc <cincenko@outlook.com>
-Description: Download all funds, for instance to create a portfolio. 
+Description: Download all asset management funds from ČSOB Czech Republic bank.
     Use four spaces when indenting paragraphs within the Description.
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -15,4 +15,4 @@ Suggests: testthat,
     knitr,
     rmarkdown
 VignetteBuilder: knitr
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
