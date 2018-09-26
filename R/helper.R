@@ -1,3 +1,5 @@
+site_URL = "https://www.csobam.cz/portal/asset-management/produkty-a-sluzby/aktualni-hodnoty-a-vykonnost"
+
 #' Return a website string for further use.
 #'
 #' If contains parameters, then they are appended.
@@ -6,7 +8,7 @@
 #' By default it is set to \url{https://www.csobam.cz/portal/asset-management/produkty-a-sluzby/aktualni-hodnoty-a-vykonnost}
 #'
 #' @return a URL string
-returnURL <- function(URL = "https://www.csobam.cz/portal/asset-management/produkty-a-sluzby/aktualni-hodnoty-a-vykonnost", ...) {
+returnURL <- function(URL = site_URL, ...) {
   CSOBAM_table_url <- URL
   return(CSOBAM_table_url)
 }
