@@ -7,14 +7,14 @@ The goal of CSOBam is to be able to download data that are displayed publically 
 
 ## Example
 
-This is a basic example which shows you how to download the first page of funds' performance.
+This is a basic example which downloads the first page of funds' performance.
 
 ``` r
 library(CSOBam)
-
+funds <- managed_funds()
 ```
 
+Downloading other pages have not worked, because you cannot load the content on specific page e.g. 2 without working around "cookies" somehow.
+One idea is to load homepage and then extract all JSON ISINs which are passed in some <script></script> tags in HTML.
 
-https://www.csobam.cz/portal/asset-management/produkty-a-sluzby/aktualni-hodnoty-a-vykonnost?p_p_id=etnpwfundsoverview_WAR_etnpwfunds_INSTANCE_jXONb9fydlIh&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-main&p_p_col_count=2&_etnpwfundsoverview_WAR_etnpwfunds_INSTANCE_jXONb9fydlIh_appState=&_etnpwfundsoverview_WAR_etnpwfunds_INSTANCE_jXONb9fydlIh_action=paginationTable&_etnpwfundsoverview_WAR_etnpwfunds_INSTANCE_jXONb9fydlIh_page=2&_etnpwfundsoverview_WAR_etnpwfunds_INSTANCE_jXONb9fydlIh_execution=e1s1
-
-https://www.csobam.cz/portal/asset-management/produkty-a-sluzby/aktualni-hodnoty-a-vykonnost?p_p_id=etnpwfundsoverview_WAR_etnpwfunds_INSTANCE_jXONb9fydlIh&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-main&p_p_col_count=2&_etnpwfundsoverview_WAR_etnpwfunds_INSTANCE_jXONb9fydlIh_appState=&_etnpwfundsoverview_WAR_etnpwfunds_INSTANCE_jXONb9fydlIh_action=paginationTable&_etnpwfundsoverview_WAR_etnpwfunds_INSTANCE_jXONb9fydlIh_page=2&_etnpwfundsoverview_WAR_etnpwfunds_INSTANCE_jXONb9fydlIh_execution=e1s1
+**Essentially, abandoned for now.**

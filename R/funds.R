@@ -22,7 +22,6 @@ managed_funds <- function(pages_to_scrap = 1) {
 
   url_df <- get_targeted_URL_list(pageCount = pages_count)
 
-
   rowsBinded_table <- url_df %>%
     map(get_extr_request) %>%
     map_df(create_Table)
