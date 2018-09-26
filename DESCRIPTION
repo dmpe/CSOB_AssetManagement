@@ -1,6 +1,6 @@
 Package: CSOBam
 Type: Package
-Title: Retrieve publically available financial data from 'www.csobam.cz' (ČSOB Czech Republic Asset Management).
+Title: Retrieve publically available financial data from 'www.csobam.cz' (CSOB Czech Republic Asset Management).
 Version: 0.1.1
 Author: John Malc
 Maintainer: John Malc <cincenko@outlook.com>
@@ -10,7 +10,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.5)
-Imports: httr, curl, jsonlite, readr, xts, xml2
+Imports: httr, curl, jsonlite, readr, xts, xml2, magrittr, rvest
 Suggests: testthat,
     knitr,
     rmarkdown

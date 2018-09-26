@@ -2,16 +2,16 @@
 % Please edit documentation in R/helper.R
 \name{get_last_page}
 \alias{get_last_page}
-\title{How many pages do we have to query to get all funds managed by CSOB Asset Management.}
+\title{Returns number of pages that can be queried to get all offered funds}
 \usage{
-get_last_page()
+get_last_page(...)
 }
 \value{
 an interger count
 }
 \description{
-Either hardcoded number (~ 24) or dynamic (here).
+By default, around 20 funds per page are displayed on \url{https://www.csobam.cz/portal/asset-management/produkty-a-sluzby/aktualni-hodnoty-a-vykonnost}
 }
 \seealso{
-returnURL for the URL that is being scrapped.
+base_site_URL for the URL that is being scrapped.
 }

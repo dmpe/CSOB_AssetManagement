@@ -2,10 +2,10 @@
 % Please edit documentation in R/helper.R
 \name{create_Table}
 \alias{create_Table}
-\title{Build table from extracted HTML content}
+\title{Build data frame/tibble from the extracted HTML content}
 \usage{
-create_Table(extract_content)
+create_Table(...)
 }
 \description{
-Build table from extracted HTML content
+Build data frame/tibble from the extracted HTML content
 }

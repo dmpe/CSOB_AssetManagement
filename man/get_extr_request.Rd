@@ -2,12 +2,15 @@
 % Please edit documentation in R/helper.R
 \name{get_extr_request}
 \alias{get_extr_request}
-\title{Prepare custom CSOB AM GET request}
+\title{Executes a custom CSOB AM GET request}
 \usage{
-get_extr_request(url_req = returnURL())
+get_extr_request(page = NULL, ...)
+}
+\arguments{
+\item{...}{other arguments for the \pkg{httr}'s \code{\link[httr]{GET}} function}
 }
 \description{
-And make it ready for HTML extraction purposes
+And stores the HTML content
 }
 \examples{
 get_extr_request()

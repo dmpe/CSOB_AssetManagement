@@ -1,35 +1,34 @@
-#' Scrap all funds from a public CSOB AM website.
+#' Scrap a specified number of funds from the public CSOB AM website.
 #'
-#' No processing is done at this stage (other than adding a proper header names)
+#' No processing is done at this stage (other than adding a proper column names)
 #'
-#' @param pages_to_scrap - how many pages of available funds to scrap (by default ALL)
-#' @param funds_to_scrap - how many funds (exact number) to scrap (by default NULL)
+#' @param pages_to_scrap - how many pages of available funds to scrap.
+#' Either a string \code{"ALL"} or a number. By default, it will scrap just 1 page (~20 funds) from the \code{\link{base_site_URL}}
 #'
-#' @seealso returnURL for the URL that is being scrapped.
+#' @seealso base_site_URL for the URL that is being scrapped.
 #'
 #' @import httr rvest tibble purrr dplyr
 #'
-#' @return a table that contains either all funds managed by CSOB AM (default setting) or their selected number
+#' @return a table that contains either all funds managed by CSOB AM or their selected number (default: 1 page -> ~20 funds)
 #' @export
-managed_funds <- function(pages_to_scrap = "ALL", funds_to_scrap = NULL) {
+managed_funds <- function(pages_to_scrap = 1) {
 
   if(pages_to_scrap == "ALL") {
-    # default
-    listTableAndPageCount <- get_last_page()
+    pages_count <- get_last_page()
   } else {
+    # default
     pages_count <- pages_to_scrap
   }
 
-  url_list <- get_target_url_list(pageCount = listTableAndPageCount[[2]])
+  url_df <- get_targeted_URL_list(pageCount = pages_count)
 
-  rowsBinded_table <- url_list %>%
+
+  rowsBinded_table <- url_df %>%
     map(get_extr_request) %>%
-    map(create_Table) %>%
-    bind_rows()
+    map_df(create_Table)
 
-  df <- bind_rows(listTableAndPageCount[[1]], rowsBinded_table)
-
-  colnames(df) <- c("Empty", "Title", "Currency", "Price", "Date", "PERFORMANCE_1M", "PERFORMANCE_3M", "PERFORMANCE_6M",
+  colnames(rowsBinded_table) <- c("Title", "Currency", "Price", "Date", "PERFORMANCE_1M", "PERFORMANCE_3M", "PERFORMANCE_6M",
                     "PERFORMANCE_1R", "PERFORMANCE_3R", "PERFORMANCE_5R", "PERFORMANCE_10R")
-  return(df)
+
+  return(rowsBinded_table)
 }
